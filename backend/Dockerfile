@@ -2,7 +2,7 @@
 FROM node:14
 
 # Définissez le répertoire de travail dans le conteneur
-WORKDIR /app
+WORKDIR /back
 
 # Copiez les fichiers package.json et package-lock.json
 COPY package*.json ./
