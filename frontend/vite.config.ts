@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [solidPlugin()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': 'http://172.24.0.2:3000'
     }
   }
 });
