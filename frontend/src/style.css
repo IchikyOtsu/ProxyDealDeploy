@@ -1,0 +1,75 @@
+/* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 9% 2rem;
+    background: var(--second-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 24px;
+    transform: translateY(-20%) ;
+}
+
+.logo{
+    position: relative;
+    margin-left: -3.5rem;
+    font-size: 2.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.navbar{
+    position: relative;
+}
+
+.navbar a{
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3.5rem;
+}
+
+.navbar a i {
+    margin-left: 0.7rem;
+    transform: translateY(5%);
+}
+
+.navbar a:hover,
+.navbar a.active{
+    color: var(--main-color);
+}
+*/
+main {
+    margin-top: calc(5rem + 20px); /* Exemple : hauteur de la Navbar + un peu d'espace */
+  }
+  
