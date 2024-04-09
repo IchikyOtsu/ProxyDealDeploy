@@ -1,3 +1,13 @@
+version: '3.8'
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.16.238.0/24
+          gateway: 172.16.238.1  # Adresse IP de la passerelle par défaut
+
 services:
   express:
     build:
@@ -6,6 +16,10 @@ services:
     ports:
       - "3000:3000"
     restart: always
+    networks:
+      app-network:
+        ipv4_address: 172.16.238.50
+
   solid:
     build:
       context: ./frontend
@@ -13,3 +27,6 @@ services:
     ports:
       - "5173:5173"
     restart: always
+    networks:
+      app-network:
+        ipv4_address: 172.16.238.52
