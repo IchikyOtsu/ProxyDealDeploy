@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8080
 
 # Commande pour démarrer l'application
-CMD ["npm", "start"]
+CMD ["npm", "run","dev"]
