@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 5173
 
 # Commande pour démarrer l'application avec l'option --host 0.0.0.0
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+#CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "dev"]
