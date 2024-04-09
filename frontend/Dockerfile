@@ -13,8 +13,8 @@ RUN npm install
 # Copiez tout le reste des fichiers
 COPY . .
 
-# Exposez le port sur lequel l'application s'exécute
-EXPOSE 8080
+# Exposez le port sur lequel l'application s'exécute (port 5173)
+EXPOSE 5173
 
 # Commande pour démarrer l'application
 CMD ["npm", "run", "dev"]
