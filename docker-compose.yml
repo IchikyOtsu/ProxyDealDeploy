@@ -1,0 +1,15 @@
+services:
+  express:
+    build:
+      context: ./express-app
+      dockerfile: /backend/Dockerfile
+    ports:
+      - "3000:3000"
+    restart: always
+  solid:
+    build:
+      context: ./solid-app
+      dockerfile: /frontend/Dockerfile
+    ports:
+      - "8080:8080"
+    restart: always
