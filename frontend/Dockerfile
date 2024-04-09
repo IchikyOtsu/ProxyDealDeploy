@@ -1,5 +1,5 @@
-# Utilisez une image de base avec Node.js
-FROM node:14
+# Utilisez une image de base avec Node.js 20.9.0
+FROM node:20.9.0
 
 # Définissez le répertoire de travail dans le conteneur
 WORKDIR /front
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8080
 
 # Commande pour démarrer l'application
-CMD ["npm", "run","dev"]
+CMD ["npm", "run", "dev"]
