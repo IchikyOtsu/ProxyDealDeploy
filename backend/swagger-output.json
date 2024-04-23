@@ -1,0 +1,882 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"title": "Proxideal",
+		"description": "API defined for a sample project during the course 'Développement Informatique III' à l'EPHEC Louvain-la-Neuve",
+		"version": "1.0.0"
+	},
+	"host": "localhost:3000",
+	"basePath": "/",
+	"schemes": ["http", "https"],
+	"paths": {
+		"/api/adverts": {
+			"get": {
+				"description": "Get all adverts",
+				"responses": {
+					"200": {
+						"description": "OK"
+					}
+				}
+			}
+		},
+		"/api/adverts/{id}": {
+			"get": {
+				"description": "Get a single advert by ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Advert not found"
+					}
+				}
+			}
+		},
+		"/testDB": {
+			"get": {
+				"description": "Test database connection",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/users": {
+			"get": {
+				"description": "Get all users",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"post": {
+				"description": "Create a new user",
+				"parameters": [
+					{
+						"name": "user",
+						"in": "body",
+						"description": "User object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"username": {
+									"type": "string"
+								},
+								"email": {
+									"type": "string"
+								},
+								"password_hash": {
+									"type": "string"
+								},
+								"role": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/users/{id}": {
+			"get": {
+				"description": "Get a single user by ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "User not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"put": {
+				"description": "Update a user",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "user",
+						"in": "body",
+						"description": "User object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"username": {
+									"type": "string"
+								},
+								"email": {
+									"type": "string"
+								},
+								"password_hash": {
+									"type": "string"
+								},
+								"role": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "User not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete a user",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "User not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/enterprises": {
+			"get": {
+				"description": "Get all enterprises",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"post": {
+				"description": "Create a new enterprise",
+				"parameters": [
+					{
+						"name": "enterprise",
+						"in": "body",
+						"description": "Enterprise object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								},
+								"description": {
+									"type": "string"
+								},
+								"logo_url": {
+									"type": "string"
+								},
+								"website_url": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/enterprises/{id}": {
+			"get": {
+				"description": "Get a single enterprise by ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Enterprise not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"put": {
+				"description": "Update an enterprise",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "enterprise",
+						"in": "body",
+						"description": "Enterprise object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"name": {
+									"type": "string"
+								},
+								"description": {
+									"type": "string"
+								},
+								"logo_url": {
+									"type": "string"
+								},
+								"website_url": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Enterprise not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete an enterprise",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Enterprise not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/applications": {
+			"get": {
+				"description": "Get all applications",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"post": {
+				"description": "Create a new application",
+				"parameters": [
+					{
+						"name": "application",
+						"in": "body",
+						"description": "Application object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"advert_id": {
+									"type": "integer"
+								},
+								"status": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/applications/{id}": {
+			"get": {
+				"description": "Get a single application by ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Application not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"put": {
+				"description": "Update an application",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "application",
+						"in": "body",
+						"description": "Application object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"advert_id": {
+									"type": "integer"
+								},
+								"status": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Application not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete an application",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Application not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/chat-messages": {
+			"get": {
+				"description": "Get all chat messages",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"post": {
+				"description": "Create a new chat message",
+				"parameters": [
+					{
+						"name": "chatMessage",
+						"in": "body",
+						"description": "Chat message object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"sender_id": {
+									"type": "integer"
+								},
+								"recipient_id": {
+									"type": "integer"
+								},
+								"content": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/chat-messages/{id}": {
+			"get": {
+				"description": "Get a single chat message by ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Chat message not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"put": {
+				"description": "Update a chat message",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "chatMessage",
+						"in": "body",
+						"description": "Chat message object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"sender_id": {
+									"type": "integer"
+								},
+								"recipient_id": {
+									"type": "integer"
+								},
+								"content": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Chat message not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete a chat message",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Chat message not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/schedules": {
+			"get": {
+				"description": "Get all schedules",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"post": {
+				"description": "Create a new schedule",
+				"parameters": [
+					{
+						"name": "schedule",
+						"in": "body",
+						"description": "Schedule object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"advert_id": {
+									"type": "integer"
+								},
+								"start_time": {
+									"type": "string"
+								},
+								"end_time": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/schedules/{id}": {
+			"get": {
+				"description": "Get a single schedule by ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Schedule not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"put": {
+				"description": "Update a schedule",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "schedule",
+						"in": "body",
+						"description": "Schedule object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"advert_id": {
+									"type": "integer"
+								},
+								"start_time": {
+									"type": "string"
+								},
+								"end_time": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Schedule not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete a schedule",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Schedule not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/notifications": {
+			"get": {
+				"description": "Get all notifications",
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"post": {
+				"description": "Create a new notification",
+				"parameters": [
+					{
+						"name": "notification",
+						"in": "body",
+						"description": "Notification object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"content": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"201": {
+						"description": "Created"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		},
+		"/api/notifications/{id}": {
+			"get": {
+				"description": "Get a single notification by ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Notification not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"put": {
+				"description": "Update a notification",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "notification",
+						"in": "body",
+						"description": "Notification object",
+						"required": true,
+						"schema": {
+							"type": "object",
+							"properties": {
+								"user_id": {
+									"type": "integer"
+								},
+								"content": {
+									"type": "string"
+								},
+								"is_read": {
+									"type": "boolean"
+								}
+							}
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Notification not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			},
+			"delete": {
+				"description": "Delete a notification",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK"
+					},
+					"404": {
+						"description": "Notification not found"
+					},
+					"500": {
+						"description": "Internal Server Error"
+					}
+				}
+			}
+		}
+	}
+}
